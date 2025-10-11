@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using SistemaInventario.AccesoDatos.Data;
 using SistemaInventario.Data;
 
 namespace SistemaInventario.Data.Migrations
