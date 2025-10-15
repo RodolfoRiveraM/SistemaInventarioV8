@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaInventario.AccesoDatos.Data.Migrations.Configuracion
+namespace SistemaInventario.AccesoDatos.Configuracion
 {
     public  class BodegaConfiguracion : IEntityTypeConfiguration<Bodega>
     {
