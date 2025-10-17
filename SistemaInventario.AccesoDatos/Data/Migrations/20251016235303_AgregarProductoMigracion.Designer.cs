@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaInventario.AccesoDatos.Data;
 
@@ -11,9 +12,11 @@ using SistemaInventario.AccesoDatos.Data;
 namespace SistemaInventario.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251016235303_AgregarProductoMigracion")]
+    partial class AgregarProductoMigracion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -325,6 +328,7 @@ namespace SistemaInventario.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ImagenUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MarcaId")
@@ -335,7 +339,7 @@ namespace SistemaInventario.Data.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
-                    b.Property<int?>("PadreId")
+                    b.Property<int>("PadreId")
                         .HasColumnType("int");
 
                     b.Property<double>("Precio")
@@ -420,7 +424,8 @@ namespace SistemaInventario.Data.Migrations
                     b.HasOne("SistemaInventario.Modelos.Producto", "Padre")
                         .WithMany()
                         .HasForeignKey("PadreId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.Navigation("Categoria");
 
